@@ -8,6 +8,17 @@ that it can be used in some analysis like species distribution modeling.  This d
 packaged as a Docker container so that it can easily be used in a number of different
 environments without the extra tasks associated with installation.
 
+## Data Cleaning
+
+For this demo, we will clean a set of occurrence records for Heuchera species.  The
+original data includes 11,490 records and is a CSV file that includes species name,
+decimal latitude, and decimal longitude.  To clean this dataset, we will first remove
+any records that have less than four decimal places of precision.  For this scenario,
+we will assume that these records will be used for creating a species distribution
+model and thus, records with identical latitude and longitude values for a species
+are redundant and will be removed.  Finally, we only want to create models for species
+with at least 12 points, so any species that have less than 12 points will be removed.
+
 ## Setup Steps
 
 Before we can run the demo, we need to build the container.  This documentation
@@ -47,3 +58,9 @@ Windows:
 
   `# clean_occurrences /demo/heuchera.csv /demo/clean_data.csv /demo/wrangler_conf.json`
   
+3. From your local machine, inspect the original and cleaned occurrence data files
+   (data/heuchera.csv and data/clean_data.csv).  The fields have not changed between the
+   two files, but the cleaning step removed all records with less than 4 decimal places
+   of precision, any duplicate points (where species name, latitude, and longitude are
+   the same), and any species with less than 12 points.  The result is a cleaned dataset
+   with 6678 occurrence records down from the original 11,490.

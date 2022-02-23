@@ -14,10 +14,17 @@ Before we can run the demo, we need to build the container.  This documentation
 assumes that Docker has been installed for your environment 
 (see: https://docs.docker.com/get-docker/).
 
-1. Clone the repository
+1a. Clone the repository
 
   `git clone https://github.com/biotaphy/data_cleaning_demo.git`
-  
+
+1b. Download the repository from GitHub (without using git)
+
+  If you don't have git installed, you can download the repository as a zip file.
+  Navigate to https://github.com/biotaphy/data_cleaning_demo/releases/latest and
+  download the source code under the Assets section.  After download, uncompress
+  the file.
+
 2. Change to the repository directory
 
   `cd data_cleaning_demo`

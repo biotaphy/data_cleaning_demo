@@ -56,11 +56,31 @@ Windows:
   
 2. Run the data cleaning example from the container
 
-  `# clean_occurrences /demo/heuchera.csv /demo/clean_data.csv /demo/wrangler_conf.json`
+  `# clean_occurrences -r /demo/cleaning_report.json /demo/heuchera.csv /demo/clean_data.csv /demo/wrangler_conf.json`
   
 3. From your local machine, inspect the original and cleaned occurrence data files
    (data/heuchera.csv and data/clean_data.csv).  The fields have not changed between the
    two files, but the cleaning step removed all records with less than 4 decimal places
    of precision, any duplicate points (where species name, latitude, and longitude are
    the same), and any species with less than 12 points.  The result is a cleaned dataset
-   with 6678 occurrence records down from the original 11,490.
+   with 6678 occurrence records down from the original 11,490.  You can see a more
+   detailed report of how many points were removed by each filter in the file
+   `data/cleaning_report.json`.  It should contain something like the following.
+
+```
+{
+    "input_records": 11489,
+    "output_records": 6677,
+    "wranglers": {
+        "decimal_precision_filter": {
+            "removed": 2978
+        },
+        "unique_localities_filter": {
+            "removed": 1800
+        },
+        "minimum_points_filter": {
+            "removed": 34
+        }
+    }
+}
+```

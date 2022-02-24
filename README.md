@@ -48,7 +48,7 @@ assumes that Docker has been installed for your environment
 
 1. Run a bash shell in the container interactively
 
-Unix:
+Mac / Linux:
   `docker run -v "$(pwd)"/data:/demo -it dc_demo bash`
 
 Windows:

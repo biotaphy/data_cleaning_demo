@@ -49,10 +49,10 @@ assumes that Docker has been installed for your environment
 1. Run a bash shell in the container interactively
 
 Mac / Linux:
-  `docker run -v "$(pwd)"/data:/demo -it dc_demo bash`
+  `docker run -v "$(pwd)"/data:/demo -it dc_demo bash` or `./docker_run_unix.sh`
 
 Windows:
-  `docker run -v %cd%/data:/demo -it dc_demo bash`
+  `docker run -v %cd%/data:/demo -it dc_demo bash` or `docker_run_sindows.bat`
   
 2. Run the data cleaning example from the container
 
